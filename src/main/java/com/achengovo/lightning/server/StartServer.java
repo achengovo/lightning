@@ -16,14 +16,12 @@ public class StartServer {
     private Server server;
     private String groupName;
     Map<String, Object> serviceInstances;
-    Object serviceImpl;
 
-    public StartServer(Map<String, Object> serviceInstances,String namingUrl, Instance instance, String groupName,Object serviceImpl) throws NacosException {
+    public StartServer(Map<String, Object> serviceInstances,String namingUrl, Instance instance, String groupName) throws NacosException {
         this.serviceInstances = serviceInstances;
         this.naming = NamingFactory.createNamingService(namingUrl);
         this.instance = instance;
         this.groupName = groupName;
-        this.serviceImpl=serviceImpl;
     }
 
     public void start() throws Exception {
