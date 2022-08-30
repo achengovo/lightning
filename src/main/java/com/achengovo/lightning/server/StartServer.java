@@ -15,9 +15,11 @@ public class StartServer {
     private Instance instance;
     private Server server;
     private String groupName;
+    Map<String, Object> serviceInstances;
     Object serviceImpl;
 
-    public StartServer(String namingUrl, Instance instance, String groupName,Object serviceImpl) throws NacosException {
+    public StartServer(Map<String, Object> serviceInstances,String namingUrl, Instance instance, String groupName,Object serviceImpl) throws NacosException {
+        this.serviceInstances = serviceInstances;
         this.naming = NamingFactory.createNamingService(namingUrl);
         this.instance = instance;
         this.groupName = groupName;
@@ -25,8 +27,6 @@ public class StartServer {
     }
 
     public void start() throws Exception {
-        Map<String, Object> serviceInstances = new HashMap<>();
-        serviceInstances.put(instance.getServiceName(), serviceImpl);
         this.server = new Server(serviceInstances, instance.getPort());
         server.start();
         naming.registerInstance(instance.getServiceName(), groupName, instance);

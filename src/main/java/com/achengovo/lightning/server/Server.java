@@ -28,7 +28,7 @@ public class Server {
     //保存channel
     Set<Channel> channelSet = Collections.synchronizedSet(new HashSet<>());
     //保存服务实例
-    private Map<String, Object> serviceInstances = new HashMap<>();
+    private Map<String, Object> serviceInstances;
     public Server(Map<String, Object> serviceInstances, int port) {
         this.serviceInstances = serviceInstances;
         this.port = port;
