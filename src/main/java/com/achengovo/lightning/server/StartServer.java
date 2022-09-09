@@ -20,6 +20,7 @@ public class StartServer {
     public StartServer(Map<String, Object> serviceInstances,String namingUrl, Instance instance, String groupName) throws NacosException {
         this.serviceInstances = serviceInstances;
         this.naming = NamingFactory.createNamingService(namingUrl);
+        instance.setInstanceId(instance.getClusterName()+"-"+instance.getServiceName()+"-"+instance.getIp()+":"+instance.getPort());
         this.instance = instance;
         this.groupName = groupName;
     }
