@@ -3,6 +3,8 @@
 #### 介绍
 Gitee:https://gitee.com/achengovo/lightning.git
 
+Github:https://github.com/achengovo/lightning.git
+
 技术栈： netty、nacos、反射、动态代理、juc、序列化与反序列化
 
 实现功能：服务注册与发现、负载均衡、Filter、优雅关闭
