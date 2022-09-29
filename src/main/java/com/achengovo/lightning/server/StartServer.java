@@ -1,12 +1,8 @@
 package com.achengovo.lightning.server;
-
-import com.achengovo.lightning.server.Server;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingFactory;
 import com.alibaba.nacos.api.naming.NamingService;
 import com.alibaba.nacos.api.naming.pojo.Instance;
-
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
