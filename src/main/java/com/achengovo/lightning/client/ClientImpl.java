@@ -9,6 +9,7 @@ import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.*;
@@ -90,6 +91,7 @@ public class ClientImpl implements Client {
                     @Override
                     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                         ChannelPipeline pipeline = nioSocketChannel.pipeline();
+                        pipeline.addLast(new LengthFieldBasedFrameDecoder(102400, 4, 4));
                         pipeline.addLast(new Encode());
                         pipeline.addLast(new Decode());
                         pipeline.addLast(new ChannelInboundHandlerAdapter() {
